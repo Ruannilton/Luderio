@@ -7,7 +7,7 @@ internal class CatalogDbContext : DbContext
 {
     public DbSet<Game> Games { get; set; }
     public DbSet<GameType> GameTypes { get; set; }
-
+    public DbSet<GameItem> GameItems { get; set; }
     public CatalogDbContext() { }
 
     public CatalogDbContext(DbContextOptions options) : base(options)
@@ -20,5 +20,6 @@ internal class CatalogDbContext : DbContext
 
         modelBuilder.ApplyConfiguration(new GameDbConfiguration());
         modelBuilder.ApplyConfiguration(new GameTypeDbConfiguration());
+        modelBuilder.ApplyConfiguration(new GameItemDbConfiguration());
     }
 }

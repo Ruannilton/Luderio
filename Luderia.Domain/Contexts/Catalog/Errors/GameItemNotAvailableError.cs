@@ -1,0 +1,1 @@
+﻿public record GameItemNotAvailableError(): DomainError(nameof(GameItemNotAvailableError), "Game item not available");

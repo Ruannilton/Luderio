@@ -10,9 +10,3 @@ public class Game
     public int Duration { get; set; }
     public List<GameType> Types { get; set; }
 }
-
-public class GameHeader
-{
-    public int BGGId { get; set; }
-    public string Name { get; set; }
-}

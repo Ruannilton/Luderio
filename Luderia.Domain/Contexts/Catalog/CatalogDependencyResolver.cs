@@ -19,5 +19,15 @@ public static class CatalogDependencyResolver
         services.AddScoped<IGetGameUseCase, GetGameUseCase>();
         services.AddScoped<ISearchGameUseCase, SearchGameUseCase>();
         services.AddScoped<IListTypesUseCase, ListTypesUseCase>();
+
+        services.AddScoped<IAddGameItemUseCase, AddGameItemUseCase>();
+        services.AddScoped<IGetAvailableGameItemUseCase, GetAvailableGameItemUseCase>();
+        services.AddScoped<IGetGameItemUseCase, GetGameItemUseCase>();
+        services.AddScoped<IRentGameItemUseCase, BorrowGameItemUseCase>();
+        services.AddScoped<IReturnGameItemUseCase, ReturnGameItemUseCase>();
+        services.AddScoped<IAddDamageUseCase, AddDamageUseCase>();
+        services.AddScoped<IRemoveDamageUseCase, RemoveDamageUseCase>();
+        services.AddScoped<IUpdateDamageUseCase, UpdateDamageUseCase>();
+
     }
 }

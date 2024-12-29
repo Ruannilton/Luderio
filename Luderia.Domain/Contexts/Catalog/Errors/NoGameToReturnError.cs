@@ -1,0 +1,1 @@
+﻿public record NoGameToReturnError() : DomainError(nameof(NoGameToReturnError), "There is no game to return");

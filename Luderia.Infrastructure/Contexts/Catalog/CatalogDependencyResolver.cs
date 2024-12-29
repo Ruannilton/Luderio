@@ -40,11 +40,13 @@ public static class CatalogDependencyResolver
 
         services.AddScoped<IGameRepository, GameRepository>();
         services.AddScoped<IGameTypeRepository, GameTypeRepository>();
+        services.AddScoped<IGameItemRepository, GameItemRepository>();
         services.AddScoped<ICatalogUnitOfWork, CatalogUnitOfWork>();
         services.AddScoped<IGameIdExistsQuery, GameIdExistsQuery>();
         services.AddScoped<IGameTypeExistsQuery, GameTypeExistsQuery>();
         services.AddScoped<ISearchGameQuery, SearchGameQuery>();
         services.AddScoped<IListGameTypesQuery, ListGameTypesQuery>();
+        services.AddScoped<IFindAvailableGameItemsQuery, FindAvailableGameItemsQuery>();
 
     }
 }
