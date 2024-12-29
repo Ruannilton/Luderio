@@ -1,0 +1,1 @@
+﻿public record CustomerCpfAlreadyExists() : DomainError(nameof(CustomerCpfAlreadyExists), "CPF alredy registered");
