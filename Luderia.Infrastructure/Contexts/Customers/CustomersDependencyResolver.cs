@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 namespace Luderia.Infrastructure.Contexts.Customers;
+
 public static class CustomersDependencyResolver
 {
     public static void ResolveCustomerInfrastructure(this IHostApplicationBuilder builder)

@@ -20,6 +20,6 @@ internal class GameItemRepository : IGameItemRepository
 
     public async Task<GameItem?> GetGameItem(int gameId)
     {
-       return await dbContext.GameItems.FirstOrDefaultAsync(x => x.GameId == gameId);
+        return await dbContext.GameItems.FirstOrDefaultAsync(x => x.GameId == gameId);
     }
 }

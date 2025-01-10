@@ -1,8 +1,8 @@
 ﻿using Luderia.Domain.Contexts.Catalog.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.Text.Json.Serialization;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Luderia.Infrastructure.Contexts.Catalog.Database;
 

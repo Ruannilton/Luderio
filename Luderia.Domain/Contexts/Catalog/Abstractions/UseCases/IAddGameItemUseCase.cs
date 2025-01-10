@@ -16,12 +16,12 @@ public interface IGetGameItemUseCase
     Task<Result<GameItem>> Execute(int gameItemId);
 }
 
-public interface IRentGameItemUseCase
+public interface ILockGameItemUseCase
 {
     Task<Result> Execute(int gameItemId);
 }
 
-public interface IReturnGameItemUseCase
+public interface IUnlockGameItemUseCase
 {
     Task<Result> Execute(int gameItemId);
 }
@@ -36,7 +36,7 @@ public interface IRemoveDamageUseCase
     Task<Result> Execute(int gameItemId, int damageId);
 }
 
-public interface  IUpdateDamageUseCase
+public interface IUpdateDamageUseCase
 {
     Task<Result> Execute(int gameItemId, int damageId, string description);
 }

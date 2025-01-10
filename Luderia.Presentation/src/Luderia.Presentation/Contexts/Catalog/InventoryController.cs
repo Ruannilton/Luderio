@@ -23,7 +23,7 @@ public class InventoryController : ControllerBase
 
         var commitResult = await unitOfWork.Commit();
 
-        if(commitResult.IsFailure)
+        if (commitResult.IsFailure)
         {
             return this.ProblemResponse(commitResult);
         }
@@ -42,7 +42,7 @@ public class InventoryController : ControllerBase
         }
 
         var item = itemResult.Value;
-        
+
         return Ok(item);
     }
 
@@ -62,7 +62,7 @@ public class InventoryController : ControllerBase
     }
 
     [HttpPut("inventory/item/{itemId}/rent")]
-    public async Task<ActionResult> RentItem([FromServices] IRentGameItemUseCase useCase, [FromServices] ICatalogUnitOfWork unitOfWork, [FromRoute] int itemId)
+    public async Task<ActionResult> RentItem([FromServices] ILockGameItemUseCase useCase, [FromServices] ICatalogUnitOfWork unitOfWork, [FromRoute] int itemId)
     {
         var itemResult = await useCase.Execute(itemId);
 
@@ -75,7 +75,7 @@ public class InventoryController : ControllerBase
     }
 
     [HttpPut("inventory/item/{itemId}/return")]
-    public async Task<ActionResult> ReturnItem([FromServices] IReturnGameItemUseCase useCase, [FromServices] ICatalogUnitOfWork unitOfWork, [FromRoute] int itemId)
+    public async Task<ActionResult> ReturnItem([FromServices] IUnlockGameItemUseCase useCase, [FromServices] ICatalogUnitOfWork unitOfWork, [FromRoute] int itemId)
     {
         var result = await useCase.Execute(itemId);
 
@@ -99,7 +99,7 @@ public class InventoryController : ControllerBase
 
         var commitResult = await unitOfWork.Commit();
 
-        if(commitResult.IsFailure)
+        if (commitResult.IsFailure)
         {
             return this.ProblemResponse(commitResult);
         }

@@ -3,10 +3,10 @@ using Luderia.Domain.Contexts.Catalog.Abstractions.UseCases;
 
 namespace Luderia.Domain.Contexts.Catalog.UseCases;
 
-internal class ReturnGameItemUseCase : IReturnGameItemUseCase
+internal class LockGameItemUseCase : ILockGameItemUseCase
 {
     private readonly IGameItemRepository gameItemRepository;
-    public ReturnGameItemUseCase(IGameItemRepository gameItemRepository)
+    public LockGameItemUseCase(IGameItemRepository gameItemRepository)
     {
         this.gameItemRepository = gameItemRepository;
     }
@@ -17,10 +17,10 @@ internal class ReturnGameItemUseCase : IReturnGameItemUseCase
         if (gameItem == null)
             return Result.Failure(new GameNotFoundError());
 
-        if (gameItem.Available)
-            return Result.Failure(new GameItemAlreadyAvailableError());
+        if (!gameItem.Available)
+            return Result.Failure(new GameItemNotAvailableError());
 
-        gameItem.Available = true;
+        gameItem.Available = false;
 
         return Result.Success();
     }

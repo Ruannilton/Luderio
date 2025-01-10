@@ -17,12 +17,13 @@ internal class UpdateDamageUseCase : IUpdateDamageUseCase
         if (gameItem == null)
             return Result.Failure(new GameNotFoundError());
 
-        var damage = gameItem.Damages.FirstOrDefault(d => d.Id == damageId);
+        var damageIndex = gameItem.Damages.FindIndex(d => d.Id == damageId);
 
-        if (damage == null)
+        if (damageIndex == -1)
             return Result.Failure(new DamageNotFoundError());
 
-        damage = damage with { Description = description };
+        gameItem.Damages[damageIndex] = gameItem.Damages[damageIndex] with { Description = description };
+
         return Result.Success();
     }
 }

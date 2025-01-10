@@ -1,0 +1,1 @@
+﻿public record InvalidOptionError() : DomainError(nameof(InvalidOptionError), "Value provided is not valid");
